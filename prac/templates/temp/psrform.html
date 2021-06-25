@@ -1,0 +1,143 @@
+{% load static %}
+<html>
+<head>
+	<title>Pandemic Subsidy Registration</title>
+
+	
+<style>
+
+
+body {
+  background-color: #d9d9d9;
+/*  background-image: <img src="{% static 'image/roli/filipino.jpg'%}" alt="roli">*/
+}
+.backgroundtitle{
+	background-color: #3a3a3a;
+	border-radius: 20px;
+}
+.firstpage
+{
+	background: gray;
+	width: 550px;
+	height: 218px;
+	padding: 0 50px 50px 0;
+	text-align: center;
+	margin-left: 280px;
+	border-radius: 30px;
+
+}
+
+#confirmbtn{
+	border-radius: 30px;
+	height:40px;
+	width: 90px;
+/*	position: relative;*/
+	margin-left: 520px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="backgroundtitle">
+
+
+<h1 style="color:white; font-family:verdana; font: arial bold; font-size: 40px; text-align:center;">Pandemic Subsidy form for Mabuhay City Residence</h1> </div>
+
+<!-- <div class="logo">
+	<img src="{% static 'image/pandemiclogo.png' %}" alt='logo'>
+
+
+
+</div> -->
+
+<!-- 
+<p style="text-align:center; color: darkblue ; font-size: 25px;">Welcome! Please fill-up all the information needed for the distribution of financial subsidy.</p>
+ -->
+
+<h2 style="color: #392613; font: arial bold; font-size: 35px; text-align:center;"><b>Step 1: Initial Registration<b></h2>
+
+<form method="POST" action="prac/newlist_url">
+
+<div class="firstpage">
+<br>
+	<label style="color:#392613; 
+			font-family:verdana; 
+			font-size: 20px;
+			text-align:center;" 
+			for="name">
+	<b>Name of Applicant:<b></label><br>
+		<input style="border-radius: 0 0.5em; "type="text" id="surname" name="surname" placeholder="Full Name" required />
+
+<br>
+
+	<label style="color:#392613; font-family:verdana; font-size: 20px;" for="age"><b>Age:<b></label><br>
+		<input style="border-radius: 0 0.5em;"type="number" 
+		   id="age" 
+		   name="age" 
+		   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" /><br>
+
+	<label style="color:#392613; font-family:verdana; font-size: 20px;" for="age"><b>Sex:<b></label><br>
+		<input style="border-radius: 0 0.5em;"type="radio" 
+		   id="msex" 
+		   name="sex" 
+		   value="Male"/>
+	<label style="color:#392613; font-family:verdana; font-size: 20px;" for="sexm"><b>Male<b></label>
+	<input style="border-radius: 0 0.5em;"type="radio" 
+		   id="fsex" 
+		   name="sex" 
+		   value="Female"/>
+	<label style="color:#392613; font-family:verdana; font-size: 20px;" for="sexf"><b>Female<b></label>
+
+<br>
+<br>
+	<label style="color:#392613; font-family:verdana; font-size: 20px;"for="address"><b>Permanent Address<b></label><br>
+
+		<textarea style="border-radius: 0 0.5em;"id="address" 
+				  name="address" 
+				  rows="2" 
+				  cols="50">
+		</textarea>
+
+<br>
+<br>
+
+</div>
+
+
+
+<div class="button">
+<input type="submit" 
+	   id="confirmbtn" 
+	   name="confirmbtn" 
+	   style="color:white; background-color: #3a3a3a" 
+	   value="Confirm"/>
+</div>
+
+
+</div>
+
+{% csrf_token %}
+{{ pname.fname.upper }}
+
+
+
+</form>
+
+<table id="psrtable" name="psrtable">
+	{% for item in newlist %}
+	<tr>
+		<td>{{forloop.counter}} : {{item.text}}</td>
+
+		{% endfor %}
+	<tr>
+</table>
+
+
+
+</body>
+
+
+</html>

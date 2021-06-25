@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Pandemic Subsidy Registration</title>
+
+
+
+</head>
+
+<body>
+
+<div class="background">
+
+<h1 style="color:darkblue; font: arial bold; font-size: 35px">Pandemic Subsidy form</h1>
+
+<br>
+
+<h2 style="color:gray; font-size: 25px">Personal Information</h2>
+
+<form method="POST" action='/psr/{{pn.id}}/additem'>
+<br> 
+<br>
+
+
+<label for="name">Name of Applicant:</label><br>
+<input type="text" id="surname" name="surname" placeholder="Surname"/>
+<input type="text" id="givenname" name="givenname" placeholder="Given Name"/>
+<input type="text" id="middlename" name="middlenname" placeholder="Middle Name"/>
+
+<br>
+<br>
+
+<label for="age">Age:</label>
+<input type="number" 
+	   id="age" 
+	   name="age" 
+	   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+<label for="age">Sex:</label>
+<input type="radio" 
+	   id="msex" 
+	   name="sex" 
+	   value="Male"/>
+<label for="sexm">Male</label>
+<input type="radio" 
+	   id="fsex" 
+	   name="sex" 
+	   value="Female"/>
+<label for="sexf">Female</label>
+
+<br>
+<br>
+<label for="address">Permanent Address</label><br>
+
+<textarea id="address" 
+		  name="address" 
+		  rows="2" 
+		  cols="100">
+</textarea>
+
+<br>
+<br>
+
+<input type="submit" 
+	   id="confirmbtn" 
+	   name="confirmbtn" 
+	   style="color:white; background-color: lightblue" 
+	   value="Confirm"/>
+	
+{% csrf_token %}
+</form>
+
+<table id="psrtable">
+	{% for item in pn.item_set.all %}
+	<tr>
+		<td>{{ forloop.counter }}: {{ item.text }} </td>
+	</tr>
+	{% endfor %}
+</table>
+
+
+
+</div>
+
+</body>
+
+
+</html>

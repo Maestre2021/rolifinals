@@ -1,0 +1,35 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+ <div class="CRUD">
+<form action="UpdateBank/{{ bank.id }}" method="POST">
+
+    {% csrf_token %}
+<div class="qrcodeedit">
+    <h2>Receiving Bank</h2><br>
+    <label for="bank">Choose your desired bank:</label><br>
+
+    <select name="banks"value="{{ bank.bank_pawnshop }}" name="banks" id="banks">
+    <option value="LB">LANDBANK</option>
+    <option value="PNB">PNB</option>
+    <option value="PL">PALAWAN</option>
+    <option value="CL">CEBUANA LLUILLER</option>
+    </select><br>
+    <label for="station">Choose your desired time and date</label><br>
+    <input type="time" id="banktime" value="{{ bank.time }}" name="banktime"  min="09:00" max="18:00" >
+    <small>Office hours are 9am to 6pm</small>
+    <input type="date" id="bankdate" value="{{ bank.date }}" name="bankdate"><small>Stations available on weekdays only</small>
+<br>  
+
+<button class="updatebank" type="submit">UPDATE</button>
+
+</div>
+</form>
+
+
+</div>
+
+
+
+{% endblock %}

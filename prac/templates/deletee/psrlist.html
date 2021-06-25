@@ -1,0 +1,155 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'psrlistcss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+
+            .page2{
+               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
+            }
+        </style>
+    </head>
+        
+    
+
+            <style>
+                 
+                    .page2{
+                        width: 100%;
+                        height: 100%;
+                    
+                        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
+                    }
+                    
+                    
+            </style>
+</head>
+<body>
+
+
+
+                 <div class="page2">
+                     
+
+                 <a class="applicant" href="{% url 'Applicant' %}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                   Applicant Information
+                </a>
+                <a class="subsidy" href="{% url 'Subsidy' %}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Subsidy
+                </a>
+                <a class="status2" href="{% url 'Status' %}">
+                    <span></span> 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Status
+                </a>
+                <a class="assistance" href="{% url 'Assistance' %}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Additional Assistance
+                </a>
+
+
+
+            
+                       <div class="introduction">
+                           <h1>Hello, {{ pname.firstname.upper }}  </h1>
+                           <p  class="personinformation"><b>Personal information</b></p> </div>
+                        
+                           <div class="info">
+                           <label for="1"><b>Name:</b></label>
+                           <p>{{ pname.firstname.upper }} {{ pname.lastname }}</p>
+                           <label for="2"><b>Address</b></label>
+                           <p>{{ pname.address }}</p>
+                           <label for="3"><b>Occupation</b></label>
+                           <p>{{ fam.occupation }}</p>
+                           <p>Salary: </p>
+                            </div>
+                        
+                            <p class="familyinformation"><b>Family Information</b></p>
+                        
+                            <div class="faminfo">
+                                <label for="4" ><b>Family Member 1</b></label>
+                                <p id="famn1" contenteditable="true">Name: (insert name)</p>
+                                <p id="occu1" contenteditable="true">Occupation: (insert occupation)</p>
+                                <p id="sal1" contenteditable="true">Salary:(insert salary)</p>
+
+                                <label for="4"><b>Family Member 2</b></label>
+                                <p id="famn2" contenteditable="true">Name:(insert name)</p>
+                                <p id="occu2" contenteditable="true">Occupation:(insert occupation)</p>
+                                <p id="sal2" contenteditable="true">Salary: (insert salary)</p>
+
+                                <label for="4"><b>Family Member 3</b></label>
+                                <p id="famn3" contenteditable="true">(insert name)</p>
+                                <p id="occu3" contenteditable="true">(insert occupation)</p>
+                                <p id="sal3" contenteditable="true">(insert salary)</p>
+
+                                <button onclick="myFunction(this);">Disable content of p to be editable!</button>
+                            </div>
+                            
+                            <p class="filee"><b>Proof of Existence</b></p>
+                            <div class="file">
+                                <p style="font-size: 10px; text-align: center;">To avoid corruption using discreet information, every applicant MUST provide a CLEAR photo of your legal documents.<br>
+                                The qualified documents are:<br>
+                                    1. ID (Valid ID for adults, School ID for 21 below<br>
+                                    2. Birth Certificate<br>
+                                    3. Certificate of indigency</p><br>
+                                <label for="myfile">Select an Image/File</label>
+                                <input type="file" id="myfile" name="myfile">
+                            </div>
+                      
+                      
+                
+                </div>
+               
+                
+
+                 <!-- <script>
+                     function myFunction(){
+                         document.getElementById("famn1").contentEditable = true;
+                         document.getElementById("occu1").contentEditable = true;
+                         document.getElementById("sal1").contentEditable = true;
+                         document.getElementById("famn2").contentEditable = true;
+                         document.getElementById("occu2").contentEditable = true;
+                         document.getElementById("sal2").contentEditable = true;
+                         document.getElementById("famn3").contentEditable = true;
+                         document.getElementById("occu3").contentEditable = true;
+                         document.getElementById("sal3").contentEditable = true;
+                     }
+                 </script> -->
+
+<!-- <script>
+    function myFunction(button) {
+      var x = document.getElementsByClassName("faminfo");
+      if (x.contentEditable == "true") {
+        x.contentEditable = "false";
+        button.innerHTML = "Enable content of p to be editable!";
+      } else {
+        x.contentEditable = "true";
+        button.innerHTML = "Disable content of p to be editable!";
+      }
+    }
+    </script> -->
+
+</div>
+
+{% endblock %}

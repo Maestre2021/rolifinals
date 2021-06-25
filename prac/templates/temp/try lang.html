@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Pandemic Subsidy Registration</title>
+
+
+
+</head>
+
+<body>
+
+<div class="background">
+
+<h1 style="color:darkblue; font: arial bold; font-size: 35px">Waiting list</h1>
+<p>Thank you for signing! please wait for the official announcement on our facebook page. Thank you!
+
+
+
+<table id="psrtable">
+	{% for item in pn.item_set.all %}
+	<tr>
+    <th>Surname</th>
+    <th>Given Name</th>
+    <th>Middle Name</th>
+  </tr>
+	<tr>
+		<td>{{ forloop.counter }}: {{'sname'}}  </td>
+		<td> {{'gname'}}</td>
+		<td> {{mname}}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+
+
+</div>
+
+</body>
+
+
+</html>

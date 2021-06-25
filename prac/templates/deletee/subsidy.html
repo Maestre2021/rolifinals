@@ -1,0 +1,147 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'subsidycss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+
+            .page2{
+               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
+            }
+        </style>
+    </head>
+    
+<!-- END -->
+
+     
+                 <div class="page3">
+                     
+
+                
+                    <a class="applicant2" href="{% url 'Applicant' %}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                       Applicant Information
+                    </a>
+                    <a class="subsidy2" href="{% url 'Subsidy' %}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Subsidy
+                    </a>
+                    <a class="status2" href="{% url 'Status' %}">
+                        <span></span> 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Status
+                    </a>
+
+                    <a class="assistance" href="{% url 'Assistance' %}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Additional Assistance
+                    </a>
+                    
+              
+
+              
+                       <div class="introductionsubsidy">
+
+                        <div class="sub">
+                            
+                            <h2>Recipients</h2>
+                            <p>(insert head name)</p>
+                            <p>(inser fam mem2)</p>
+                            <p>(inser fam mem3)</p>
+                            <p>(inser fam mem4)</p><br>
+
+                           <h2>Subsidy to receive:</h2>
+                            <p>(insert totalmoney)</p>
+
+
+                        </div>
+                        
+                        <div class="receivingplace">
+                            <h2>Receiving Station</h2><br>
+                            <label for="station">Choose your desired station:</label><br>
+
+                                    <select name="station" id="station">
+                                    <option value="ph1">Phase 1</option>
+                                    <option value="ph2">Phase 2</option>
+                                    <option value="ph3">Phase 3</option>
+                                    <option value="ph4">Phase 4</option>
+                                    </select><br>
+                                    <label for="station">Choose your desired time and date</label><br>
+                                    <input type="time" id="appt" name="appt"  min="09:00" max="18:00" required>
+                                    <small>Office hours are 9am to 6pm</small>
+                                    <input type="date" id="stationdate" name="stationdate"><small>Stations available on weekdays only</small>
+                          <br>  
+
+
+                    
+                        </div>
+
+                        <div class="qrcode">
+                            <h2>Receiving Bank</h2><br>
+                            <label for="bank">Choose your desired bank:</label><br>
+
+                            <select name="banks" id="banks">
+                            <option value="LB">LANDBANK</option>
+                            <option value="PNB">PNB</option>
+                            <option value="PL">PALAWAN</option>
+                            <option value="CL">CEBUANA LLUILLER</option>
+                            </select><br>
+                            <label for="station">Choose your desired time and date</label><br>
+                            <input type="time" id="appt" name="appt"  min="09:00" max="18:00" required>
+                            <small>Office hours are 9am to 6pm</small>
+                            <input type="date" id="stationdate" name="stationdate"><small>Stations available on weekdays only</small>
+                  <br>  
+
+
+                            <!-- <h2>QR Code for Confirmation</h2>
+                            <p>NOTE:<br> (1)please enter information to generate qr code<br>
+                                        (2)Screenshot this QR Code and present to the station/bank
+                            </p>
+                            
+                            <input type="text" id="qrdata" onchange="generateQR()">
+                            <div id="qrcode"></div> -->
+                           
+
+
+
+                        </div>
+                 </div>
+                 </div>
+
+          
+                 
+
+
+
+    
+    <script src="qrcode.min.js"></script>
+    <script>   
+    var qrdata = document.getElementById('qrdata');
+        var qrcode =  new QRCODE(document.getElementById('qrcode'));
+        function generateQR(){
+            var data = qrdata.value;
+
+         qrcode.makeCode(data);
+        }
+    </script>
+    </html>
+    {% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="additionalassistance">
+
+    <form class="assistanceee" method="POST" action="Assistanceget">
+        {% csrf_token %}
+
+        <div class="assistance">
+
+            <h1>We extend our help for the need</h1>
+            <label for="applicant">APPLICANT NAME:</label>
+            <input type="text" id="appname" name="appname">
+            <label for="appaddress">ADDRESS:</label>
+            <input type="text" id="appaddress" name="appaddress">
+            <label for="appcontact">CONTACT</label>
+            <input type="number" id="appcontact" name="appcontact">
+            <label for="apploan">LOAN</label>
+            <input type="number" id="apploan" name="apploan">
+
+            <input type="submit">
+
+
+
+        </div>
+
+    </form>
+
+    <table class="assistance">
+        <table class="inquiretable">
+             
+            {% for aaaa in assist %}
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Loan</th>
+            </tr>
+
+
+            <tr>
+             {% for aaaa in pname %}
+              <td> {{ forloop.counter }}: {{ aaaa.complete }}</td>
+              {% endfor %}
+              <td> {{ aaaa.aaaddress }}</td>
+              <td> {{ aaaa.loan }} </td>
+              
+            </tr>
+            {% endfor %}
+
+
+    </table>
+                   
+
+
+
+    </table>
+
+    <!-- <form method="POST" action="">
+        <div class="donate">
+
+            <label for="donate">Donator's name</label>
+            <input type="text" id="donname" name="donname" placeholder="Input 'Anon' is you want to be hidden">
+            <label for="appaddress">ADDRESS:</label>
+            <input type="text" id="appaddress" name="appaddress">
+            <label for="appcontact">CONTACT</label>
+            <input type="number" id="appcontact" name="appcontact">
+            <label for="apploan">LOAN</label>
+            <input type="number" id="apploan" name="apploan">
+
+
+
+
+
+        </div>
+
+
+    </form> -->
+
+
+</div>
+    
+
+
+
+
+
+
+{% endblock %}

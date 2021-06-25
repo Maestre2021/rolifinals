@@ -1,0 +1,942 @@
+{% load static %}
+ <!DOCTYPE html>
+
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+    
+        <link rel="stylesheet" type="text/css" href="{% static 'css/psrformcss.css' %}">
+
+                        
+  <script src="{% static 'js/psrformjs.js' %}"></script>
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/psrlistcss.css' %}"> -->
+ <link rel="icon" href="{% static 'images/minilogo.png' %}" type='images/minilogo.png' >
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        
+        <style>
+
+
+.datetime{
+    background: black;
+    color: white;
+    padding: 10px;
+    font-size: 25px;
+    text-align: right;
+}
+/* REGISTER--------------------------------------------------------------------------------- */
+
+       
+.backgroundreg{
+            width: 100%;
+            height: 110vh;
+            position: relative;
+          
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
+        }
+         .reg{
+             position:absolute;
+            width:600px;
+            height: 600px;
+            padding: 20px;
+            left:-5%;
+            bottom: 400px;
+            transform: translate(22%,55%);
+            background: #191919;
+        }
+
+
+        .reg h1{
+            color: white;
+            text-align: center;
+        }
+
+        .reg input[type="text"],.reg input[type = "password"],.reg input[type= "number"]{
+            border:0;
+            background:none;
+            margin: 3px auto;
+            text-align: center;
+            border: 2px solid #FBEEE6;
+            padding: 7px 5px;
+            width: 100px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        #completename{
+            width:215px;
+        }
+        .reg input[type="submit"]{
+            border:0;
+            background:none;
+            display:block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #F9E79F;
+            padding: 14px 10px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .reg input[type="submit"]:hover{
+            background: #F9E79F ;
+
+        
+        }
+        .log{
+               bottom: 350px;
+        }
+
+        
+
+.watch h1{
+    position: absolute;
+    top:72%;
+    left:60%;
+    color: white;
+}
+
+.signupbtn{
+    position: absolute;
+    bottom: 70px;
+    border-radius: 20px;
+    background: yellow;
+    width: 100px;
+    padding: 12px 0;
+    text-align: center;
+}
+.signupbtn:hover{
+    background-color: lightyellow;
+}
+/* .signupbtn{
+    width:180px;
+    position: absolute;
+    left: 15%;
+    bottom: 10%;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #fff;
+    border: 0;
+    border-radius:20px;
+    outline: none;
+    margin-bottom: 30px;
+    margin-left: 1088px;
+} */
+
+.watchhere{
+    width:180px;
+    position: absolute;
+    left: -15%;
+    bottom: 10%;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #fff;
+    border: 0;
+    border-radius:20px;
+    outline: none;
+    margin-bottom: 30px;
+    margin-left: 1088px;
+}
+
+.tablelist{
+color: white;
+position: absolute;
+top: 50px;
+left:60%;
+border: 2px solid white;
+}
+.registeredapplicants th, td{
+ border: white;
+}
+/* -----ABOUT US------flipcard-------------------------------------------------------------- */
+
+.title h1, p{
+    text-align: center;
+}
+
+
+.flipcard{
+    width: 100%;
+    height: 100%;
+}
+/*FLIP CARD 1*/
+
+.center1,.front-face1,
+.center1, .back-face1{
+    position: absolute;
+    
+}
+.center1{
+    top: 65%;
+    left: 25%; /*DITO PAPALITAN ANG SIZE*/
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    overflow: hidden;
+    
+}
+.front-face1, .back-face1 {
+    
+    height: 100%;
+    width:100%;
+    
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,.2),
+                rgba(0,0,0,.2)), url("{% static 'images/pic1.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(0.4, 0.4, 0.4, 1);
+ 
+    
+}
+.contents1{
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height:100%;
+    perspective: 100px;
+    transform: translateZ(50px) scale(.94);
+}
+.front1 p{
+    color: white;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.front1 p:after{
+    content: '';
+    display: flex;
+    left:0;
+    right:0;
+    height: 2px;
+    width: 100px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.front1 span{
+    color: white;
+    font-size: 23px;
+ 
+}
+
+.back-face1{
+    transform: rotateY(180deg);
+    background: linear-gradient(45deg, #3a3a3a 0%,  #3a3a3a 100%);
+    overflow: hidden;
+}
+.back1{
+    color: white;
+
+}
+.back1 h2{
+    font-size: 33px;
+    padding-bottom: 5px;
+}
+.back1 span{
+    font-size: 25px;
+}
+.back1 pre{
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    font-size: 20px;;
+    transform: translate(-50%, -50%);
+    font-family: 'Times New Roman', Times, serif
+    
+}
+.center1:hover > .back-face1{
+    transform: rotateY(0deg);
+}
+.center1:hover > .front-face1{
+    transform: rotateY(-180deg);
+}
+
+
+/* FLIPCARD 2*/
+
+
+.center2,.front-face2,
+.center2, .back-face2{
+    position: absolute;
+}
+.center2{
+    top: 65%;
+    left: 50%; /*DITO PAPALITAN ANG SIZE*/
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    overflow: hidden;
+    
+}
+.front-face2, .back-face2 {
+    
+    height: 100%;
+    width:100%;
+    
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,.2),
+                rgba(0,0,0,.2)), url("{% static 'images/pic2.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(0.4, 0.4, 0.4, 1);
+ 
+    
+}
+.contents2{
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height:100%;
+    perspective: 100px;
+    transform: translateZ(50px) scale(.94);
+}
+.front2 p{
+    color: white;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.front2 p:after{
+    content: '';
+    display: flex;
+    left:0;
+    right:0;
+    height: 2px;
+    width: 100px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.front2 span{
+    color: white;
+    font-size: 23px;
+ 
+}
+.back2 pre{
+    position: absolute;
+    top: 45%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+}
+
+.back-face2{
+    transform: rotateY(180deg);
+    background: linear-gradient(45deg,  #3a3a3a 0%,  #3a3a3a 100%);
+    overflow: hidden;
+}
+.back2{
+    color: white;
+
+}
+.back2 h2{
+    font-size: 33px;
+    padding-bottom: 5px;
+}
+.back2 span{
+    font-size: 25px;
+}
+.back2 pre{
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    font-size: 20px;;
+    transform: translate(-50%, -50%);
+    font-family: 'Times New Roman', Times, serif
+    
+}
+.center2:hover > .back-face2{
+    transform: rotateY(0deg);
+}
+.center2:hover > .front-face2{
+    transform: rotateY(-180deg);
+}
+
+/* FLIPCARD 3*/
+
+
+.center3,.front-face3,
+.center3, .back-face3{
+    position: absolute;
+}
+.center3{
+    top: 65%;
+    left: 75%; /*DITO PAPALITAN ANG SIZE*/
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    overflow: hidden;
+    
+}
+.front-face3, .back-face3 {
+    
+    height: 100%;
+    width:100%;
+    
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,.2),
+                rgba(0,0,0,.2)), url("{% static 'images/pic3.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(0.4, 0.4, 0.4, 1);
+ 
+    
+}
+.contents3{
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height:100%;
+    perspective: 100px;
+    transform: translateZ(50px) scale(.94);
+}
+.front3 p{
+    color: white;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.front3 p:after{
+    content: '';
+    display: flex;
+    left:0;
+    right:0;
+    height: 2px;
+    width: 100px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.front3 span{
+    color: white;
+    font-size: 23px;
+ 
+}
+.back3 pre{
+    position: absolute;
+    top: 45%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+}
+
+.back-face3{
+    transform: rotateY(180deg);
+    background: linear-gradient(45deg,  #3a3a3a 0%,  #3a3a3a 100%);
+    overflow: hidden;
+}
+.back3{
+    color: white;
+
+}
+.back3 h2{
+    font-size: 33px;
+    padding-bottom: 5px;
+}
+.back3 span{
+    font-size: 25px;
+}
+.back3 pre{
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    font-size: 20px;;
+    transform: translate(-50%, -50%);
+    font-family: 'Times New Roman', Times, serif
+    
+}
+.center3:hover > .back-face3{
+    transform: rotateY(0deg);
+}
+.center3:hover > .front-face3{
+    transform: rotateY(-180deg);
+}
+
+/* /* FLIPCARD 4------------------------------------------------------------------------------------------ */
+
+ /* INQUIRIES------------------------------------------------------------------------------------------  */
+.inquiriespage{
+    height: 90vh;
+    background: white;
+    overflow: hidden;
+}
+
+.inquiriespage h1{
+    text-align: center;
+    opacity: 1.0;
+}
+
+.name{
+    position: absolute;
+    left: 174px;
+    top: 74px;
+    border: 2px solid black;
+    width: 140px;
+    padding: 5px;
+    border-radius: 20px;
+
+}
+
+
+.introductioninquiries{
+    text-align: center;
+    width: 500px;
+    height:560px;
+    position: absolute;
+    top: 186px;
+    left: 90px;
+    border: 2px dashed black
+}
+
+
+.inquiriesbtn{
+    position: absolute;
+    bottom: 9px;
+    left: 200px;
+    border-radius: 20px;
+    background: #65321B;
+    color: white;
+    width: 100px;
+    padding: 12px 0;
+    text-align: center;
+}
+.inquiriesbtn:hover{
+    background-color: #995031;
+}
+
+.popup .overlay {
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:100vh;
+  background:rgba(0,0,0,0.7);
+  z-index:1;
+  display:none;
+}
+
+.inquiretable{
+
+    position:absolute;
+    left:50%;
+    border: 2px solid black;
+
+
+}
+.popup .content {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  background:#fff;
+  width:95%;
+  max-width:500px;
+  height:250px;
+  z-index:2;
+  text-align:center;
+  padding:20px;
+  box-sizing:border-box;
+  font-family:"Open Sans",sans-serif;
+}
+ 
+.popup .close-btn {
+  cursor:pointer;
+  position:absolute;
+  right:20px;
+  top:20px;
+  width:30px;
+  height:30px;
+  background:#222;
+  color:#fff;
+  font-size:25px;
+  font-weight:600;
+  line-height:30px;
+  text-align:center;
+  border-radius:50%;
+}
+ 
+.popup.active .overlay {
+  display:block;
+}
+ 
+.popup.active .content {
+  transition:all 300ms ease-in-out;
+  transform:translate(-50%,-50%) scale(1);
+}
+/*  
+button{
+  position:absolute;
+  top:80%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  padding:15px;
+  font-size:18px;
+  border:2px solid #222;
+  color:#222;
+  text-transform:uppercase;
+  font-weight:600;
+  background:#fff;
+} */
+
+/* SUBSIDY PAGE------------------------------------------------------- */
+.subsidypage{
+    background-image: url("{% static 'images/white.jpg' %}");
+    width: 100vh;
+    height: 90vh;
+}
+
+.sub h2{
+    text-align: center;
+}
+.sub{
+        position: absolute;
+        left: 40px;
+        top: 265px;
+        border: 2px solid black;
+        width: 300px;
+        height: 250px;
+        padding: 5px;
+        border-radius: 20px;
+    
+}
+
+.receivingplace{
+    position: absolute;
+    left: 428px;
+    top: 265px;
+    border: 2px solid black;
+    width: 300px;
+    height: 250px;
+    padding: 5px;
+    border-radius: 20px;
+
+}
+.receivingplace h2{
+    text-align: center;
+}
+
+.qrcode{
+    position: absolute;
+    left: 815px;
+    top: 265px;
+    border: 2px solid black;
+    width: 300px;
+    height: 250px;
+    padding: 5px;
+    border-radius: 20px;
+
+}
+.qrcode h2{
+    text-align: center;
+}
+.qrcode p{
+    font-size: 10px;
+    text-align: center;
+}
+
+
+.subsidybtn{
+    position: absolute;
+    top: 100%;
+    left: 570px;
+    border-radius: 20px;
+    background: #65321B;
+    color: white;
+    width: 100px;
+    padding: 12px 0;
+    text-align: center;
+}
+.subsidybtn:hover{
+    background-color: #995031;
+}
+.QR{
+    position:absolute;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 400px;
+    height: 450px;
+    left: 500px;;
+    top: 240px;
+    padding: 15px;
+}
+
+/* APPLICANT PAGE---------------------------------------------------- */
+
+.Applicantpage{
+    height: 90vh;
+}
+
+
+.qrprint h2{
+    text-align: center;
+}
+.qrprint{
+        position: absolute;
+        left: 250px;
+        top: 325px;
+        border: 2px solid black;
+        width: 300px;
+        height: 250px;
+        padding: 5px;
+        border-radius: 20px;
+    
+}
+
+
+
+/* STATUS PAGE------------------------------------------------------------------------- */
+
+.statuspage{
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.familyinformation th, td{
+
+    border: 2px black solid;
+}
+
+
+.receiving th, td{
+
+border: 2px black solid;
+}
+
+.statusborder {
+    position:absolute;
+    border: 2px solid black;
+    border-radius:20px;
+    padding: 15px;
+    object-position: center;
+    left: 5%;
+    width: 400px;
+    height: 450px;
+    top: 240px;
+}
+
+table.familyinformation {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+table.claimingstation {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+table.claimingbank {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+
+.applicantbtn{
+    position: absolute;
+    top: 112%;
+    left: 620px;
+    border-radius: 20px;
+    background: #65321B;
+    color: white;
+    width: 100px;
+    padding: 12px 0;
+    text-align: center;
+}
+.applicantbtn:hover{
+    background-color: #995031;
+}
+.print{
+    position:absolute;
+    background: gray;
+    bottom:63%;
+    left:1%;
+}
+.inst{
+    position:absolute;
+    left:47%;
+    top: 94%;
+}
+.inst p{
+    font-size: small;
+}
+
+/* CRUD */
+.CRUD{
+
+    width:100%;
+    height:100%;
+
+}
+.qrcodeedit{
+    position: absolute;
+    left: 20%;
+    top: 265px;
+    border: 2px solid black;
+    width: 300px;
+    height: 250px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.updatebank{
+    position:absolute;
+    background-color: gray;
+    left:15%;
+}
+
+
+.receivingplaceedit{
+    position: absolute;
+    left: 20%;
+    top: 265px;
+    border: 2px solid black;
+    width: 300px;
+    height: 250px;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.updateplace{
+    position:absolute;
+    background-color: gray;
+    left:15%;
+}
+ </style>
+
+
+
+    </head>
+    <body>
+
+        <script src="{% static 'js/psrformjs.js' %}"></script>
+        <script>
+
+                function togglePopup(){
+
+                document.getElementById("pop-1").classList.toogle("active");
+                }
+
+
+
+        </script>
+          <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+            <div id="main">
+                <div class="announcement">
+                    <p id="welcome-bar">Welcome to the Official Page of Government Pandemic Subsidy Site!</p>
+                </div>
+                <div class="navbar">
+                <div class="logo">
+                     <img  src="{% static 'images/logo.png' %}" alt="">
+            </div>
+            <nav>
+                
+                <ul>
+                    <a href="{% url 'mainpage' %}"><li>Home</li></a>
+                    <a href="{% url 'Aboutus' %}"><li>About us</li></a>
+                <a href="{% url 'Inquiriesandco' %}"><li>Inquiries</li></a>
+
+               
+              <!--   <a href="FAQ_PAGE.html"><li>Inquiries</li></a> -->
+                </ul>
+             </nav>
+        
+                 </div>
+
+            <hr>
+            <div class="datetime">
+
+            <script type="text/javascript"> 
+                function display_c(){
+                var refresh=1000; // Refresh rate in milli seconds
+                mytime=setTimeout('display_ct()',refresh)
+                }
+                
+                function display_ct() {
+                        var x = new Date()
+                        var x1=x.toUTCString();// changing the display to UTC string
+                        document.getElementById('ct').innerHTML = x1;
+                        tt=display_c();
+                        }
+                </script>
+                
+                
+                <body onload=display_ct();>
+                <span id='ct' ></span>
+
+                </div> 
+
+
+{% block content %} {% endblock %}
+
+
+<footer class="footer">
+    <div class="footer-left">
+              <img src="{% static 'images/logo.png' %}">
+
+        <div class="socials">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+    <ul class="footer-right">
+        <li>
+            <h3>Socials</h3>
+            
+            <ul class="footer-box">
+                <li><a href="https://www.facebook.com/blackcupcogeo/" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com/_rolianne/"target="_blank">Instagram</a></li>
+                <li><a href="https://www.youtube.com/annemaestre"target="_blank">Youtube</a></li>
+                
+            </ul>
+        </li>
+
+        <li class="features">
+            <h3>Contact us</h3>
+            
+            <ul class="footer-box">
+                <li><a href="mailto:blackcupcogeo@gmail.com" target="_blank">rolianne.maestre@gsfe.tupcavite.edu.ph</a></li>
+                <li>0945 290 1920</li>
+                
+            </ul>
+        </li>
+
+        <li>
+            <h3>Address</h3>
+            
+            <ul class="footer-box">
+                <li><a href="https://www.google.com/maps/place/Mabuhay+City+Subdivision/@14.3199002,120.9870772,17z/data" target="_blank">
+                    Mabuhay City, Paliparan 3 Dasmarinas City Cavite, 4114</a></li>
+                    <li><a href="https://www.google.com/maps/place/38+F.T.+Catapusan+Rd,+Alaza+Aldea,+Tanay,+1980+Rizal/@14.495869,121.2863773,17z/"></a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="footer-bottom">
+        <p>All Rights Reserved 2021</p>
+    </div>
+</footer>
+<!--END FOOTER------------------------------------------------------>
+ 

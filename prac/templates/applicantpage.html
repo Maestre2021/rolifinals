@@ -1,0 +1,146 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+
+  
+<style>
+    
+    	/* CSS comes here */
+			
+			input {
+              
+			    padding:5px;
+			    background-color:transparent;
+			    border:none;
+			    border-bottom:solid 4px #8c52ff;
+			    width:250px;
+			    font-size:16px;
+                left: 50px;
+			}
+			
+			.qr-btn {
+			    background-color:#8c52ff;
+			    padding:10px;
+			    color:white;
+			    cursor:pointer;
+                left: 50%;
+                bottom: 5px;
+             
+			}
+            #qr-text{
+                position: absolute;
+                left: 55%;
+                top: 47%;
+            }
+            #qr-code{
+                position: absolute;
+                left: 55%;
+                top: 56%;
+            }
+            #qr-result{
+                position: absolute;
+                left: 55%;
+                top: 52%;
+            }
+            h3{
+             position: absolute;
+             left:55%;
+            }
+            .print{
+                position: absolute;
+                align-items: center;
+                left: 20%;
+                bottom: 1px;
+                background: gray;
+                color: white;
+            }
+  </style>
+  
+
+</head>
+  
+<body>
+
+<div class="Applicantpage">
+
+    <p class="instruction"><b>INSTRUCTIONS</b><br>
+        1. Please insert your FULLNAME<br>
+        2. Generate the Qr-Code<br>
+        3. Click print and save the page.<br>
+    <i>Show this print in Station/Bank of your choice</i></p>
+
+<form method="POST" action="">
+    <div class="bankandplaceinfo">
+
+        <div class="qrprint">
+                                                
+            <h2>Receiving place</h2>
+            <p>insert place</p>
+            <p>insert time</p>
+            <p>insert date</p>
+
+        <h2>Receiving Bank</h2>
+       
+        <p>insert bank</p>
+        <p>insert time</p>
+        <p>insert date</p>
+        </div>
+
+
+    </div>
+
+    <div class="qrgenerate">
+        
+<br>
+<br>
+  
+		
+		<h3>QR Code for Subsidy Claim</h3>
+
+        <div><input id="qr-text" type="text" placeholder="Text to generate QR code"/></div>
+        <br/>
+        <div>
+            <button class="qr-btn" onclick="generateQRCode()">Create QR Code</button>
+        </div>
+        <br/>
+        <p id="qr-result">This is deault QR code:</p>
+        <canvas id="qr-code"></canvas>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+		<script>
+			/* JS comes here */
+			var qr;
+			(function() {
+                    qr = new QRious({
+                    element: document.getElementById('qr-code'),
+                    size: 200,
+                    value: 'https://studytonight.com'
+                });
+            })();
+            
+            function generateQRCode() {
+                var qrtext = document.getElementById("qr-text").value;
+                document.getElementById("qr-result").innerHTML = "QR code for " + qrtext +":";
+                alert(qrtext);
+                qr.set({
+                    foreground: 'black',
+                    size: 200,
+                    value: qrtext
+                });
+            }
+		</script>
+
+<button class="print" onclick="display()">Click to Print</button>
+<script>
+   function display() {
+      window.print();
+   }
+</script>
+        
+
+        </html>
+    </div>
+</form>
+</div>
+{% endblock %}

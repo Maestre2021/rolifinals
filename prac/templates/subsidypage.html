@@ -1,0 +1,95 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+
+<script src="{% static 'js/psrformjs.js' %}"></script>
+<div class="subsidypage">
+<br>
+
+
+ 
+
+   <form method="POST" action="Subsidyget">
+    {% csrf_token %}
+
+
+
+
+ 
+
+   <div class="insidesubsidy">
+                 <div class="sub">
+
+
+                    <h2>Subsidy to receive:</h2>
+                    <label for="totfam" style="color:black;">Total Family member</label>
+                    <input style ="width: 175px;" type="number" name="totalfamily" id="totalfamily" placeholder="Number of Family member" onkeyup="mult(this.value);"><br>
+                    
+                    <label for="sub" style="color:black;">Total subsidy</label><br>
+                    <input style ="width: 175px;" type="number" name="expectedsubsidy" id="expectedsubsidy" placeholder="money to receive" readonly>
+                    <p style="color:black; font-size: x-small;">One family will receive PHP 4,000 REGARDLESS of number of family member in the house.</p>
+
+                    <br>
+              
+                    </div>
+
+                    <div class="receivingplace">
+                        <h2>Receiving Station</h2><br>
+                        <label for="station">Choose your desired station:</label><br>
+
+                                <select name="station" name ="station" id="station">
+                                <option value="ph1">Phase 1</option>
+                                <option value="ph2">Phase 2</option>
+                                <option value="ph3">Phase 3</option>
+                                <option value="ph4">Phase 4</option>
+                                </select><br>
+                                <label for="station">Choose your desired time and date</label><br>
+                                <input type="time" id="stationtime" name="stationtime"  min="09:00" max="18:00" >
+                                <small>Office hours are 9am to 6pm</small>
+                                <input type="date" id="stationdate" name="stationdate"><small>Stations available on weekdays only</small>
+                    <br>  
+                    <label for="contact">Contact Number:</label><br>
+                    <input type="number" id="number" name="number">
+
+
+
+                    </div>
+
+                    <div class="qrcode">
+                        <h2>Receiving Bank</h2><br>
+                        <label for="bank">Choose your desired bank:</label><br>
+
+                        <select name="banks" name="banks" id="banks">
+                        <option value="LB">LANDBANK</option>
+                        <option value="PNB">PNB</option>
+                        <option value="PL">PALAWAN</option>
+                        <option value="CL">CEBUANA LLUILLER</option>
+                        </select><br>
+                        <label for="station">Choose your desired time and date</label><br>
+                        <input type="time" id="banktime" name="banktime"  min="09:00" max="18:00" >
+                        <small>Office hours are 9am to 6pm</small>
+                        <input type="date" id="bankdate" name="bankdate"><small>Stations available on weekdays only</small>
+                    <br>  
+                   
+
+
+
+
+
+    </div>
+
+
+    <input type="submit" class="subsidybtn">
+    <!-- <a href="{% url 'Status' %}" class="subsidybtn">Proceed</a> -->
+
+    </div>
+
+</form>
+
+
+</div>
+
+
+
+{% endblock %}

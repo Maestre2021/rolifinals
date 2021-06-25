@@ -1,0 +1,91 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'statuscss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+
+            .page4{
+               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("% static 'images/people.jpg' %}" );
+            }
+        </style>
+    </head>
+    <body>
+    <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+<!-- END -->
+
+     
+                 <div class="page3">
+                     
+
+                
+                    <a class="applicant3" href="{% url 'Applicant' %}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                       Applicant Information
+                    </a>
+                    <a class="subsidy3" href="{% url 'Subsidy' %}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Subsidy
+                    </a>
+                    <a class="status3" href="{% url 'Status' %}">
+                        <span></span> 
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Status
+                    </a>
+
+                  
+                    <a class="assistance" href="{% url 'Assistance' %}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Additional Assistance
+                    </a>
+
+                <a class="logout" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Logout
+                </a>
+              
+
+
+                       <div class="introductionsubsidy">
+                        <p class="name">Name</p>
+
+                        <p class= "address">Address</p>
+
+
+                        <p class="registered">Time Registered</p>
+
+
+                        <p class="statuss">Status</p>
+
+                       </div>
+                   
+                 </div>
+<
+                 </body>
+
+
+
+{% endblock %}

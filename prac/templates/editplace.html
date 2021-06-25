@@ -1,0 +1,36 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+<div class="CRUD">
+
+ 
+<form action="UpdatePlace/{{ station.id }}" method="POST">
+
+{% csrf_token %}
+
+<div class="receivingplaceedit">
+    <h2>Receiving Station</h2><br>
+    <label for="station">Choose your desired station:</label><br>
+
+            <select name="station" value="{{ station.place }}" name ="station" id="station">
+            <option value="ph1">Phase 1</option>
+            <option value="ph2">Phase 2</option>
+            <option value="ph3">Phase 3</option>
+            <option value="ph4">Phase 4</option>
+            </select><br>
+            <label for="station">Choose your desired time and date</label><br>
+            <input type="time" id="stationtime" value="{{ station.time }}"  name="stationtime"  min="09:00" max="18:00" >
+            <small>Office hours are 9am to 6pm</small>
+            <input type="date" id="stationdate" value="{{ station.date }}"  name="stationdate"><small>Stations available on weekdays only</small>
+<br>  
+<button class="updateplace"type="submit">UPDATE</button>
+
+
+</div>
+</form>
+
+</div>
+
+
+{% endblock %}

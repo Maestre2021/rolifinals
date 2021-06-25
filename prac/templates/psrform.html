@@ -1,0 +1,149 @@
+
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+ 
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/psrformcss.css' %}">
+
+ 
+        <style>
+     
+
+</style>
+</head>
+<body>
+
+    <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+    <!--End of ANNOUNCEMENT and NAVIGATION BAR-------------------------->
+
+
+
+    <div class="backgroundreg">
+            
+                
+  <script src="{% static 'js/psrformjs.js' %}"></script>
+    
+  <form class="registration" method="POST" action="Mainget">
+
+                    {% csrf_token %}
+                    <div class="reg">
+                        <h1>Registration</h1>
+                        <p style="color: white;">Personal Information</p>
+
+                            <input type="text" name="completename" id="completename" placeholder="Applicant's Name">
+                            <input type="text" name="occupation" id="occupation" placeholder="Occupation">
+                            <input type="number" name="salary" id="salary" placeholder="Salary" onkeyup="sum()"><br>
+
+                            <input type="text" name="address" id="address" placeholder="Address" style ="width: 455px;"><br>
+
+            
+                        <p style="color: white;">Family Information</p>
+
+                            <input style ="width: 215px;" type="text" name="Fullname1" id="Fullname1" placeholder="Fullname (SN GN MI)" >
+                            <input type="text" name="occupation1" id="occupation1" placeholder="Occupation"> 
+                            <input type="number" name="salary1" id="salary1" placeholder="Salary"onkeyup="sum()" ><br>
+
+                            <input style ="width: 215px;" type="text" name="Fullname2" id="Fullname2" placeholder="Fullname (SN GN MI)">
+                            <input type="text" name="occupation2" id="occupation2" placeholder="Occupation"> 
+                            <input type="number" name="salary2" id="salary2" placeholder="Salary"onkeyup="sum()"><br>
+
+                            <input style ="width: 215px;" type="text" name="Fullname3" id="Fullname3" placeholder="Fullname (SN GN MI)">
+                            <input type="text" name="occupation3" id="occupation3" placeholder="Occupation"> 
+                            <input type="number" name="salary3" id="salary3" placeholder="Salary"onkeyup="sum()" ><br>
+                        <p style="color:white; font-size: x-small;"><b>NOTE:</b><br>(1) Only 4 members of the family (including the head of the family) will be included in the subsidy.<br>
+                                        (2) Please put 'none' if a family member does not have occupation.<br>
+                                        (3) Please put number zero (0) id a family member does not have salary.</b></p><br>
+                     
+                    
+                         <label for="famsal" style="color:white;">Family Monthly Salary</label>
+                            <input style ="width: 175px;" type="number" name="totalsalary" id="totalsalary" placeholder="Total Salary" readonly><br>
+                        
+                        
+                        <label for="image" style="color: white; text-align: center;">PROOF OF LEGIBILITY</label>
+                            <p style="color:white; font-size: x-small;">Upload an Image/File of your valid documents for proof</p>
+                            <input name ="image1" type="file" name="img" id="img" value="upload file/image">
+
+                            <input type="submit" class="signupbtn">
+                            <!-- <a href="{% url 'Subsidy' %}" class="signupbtn">Sign Up</a> -->
+
+                    
+                          <script>
+
+                            function sum(){
+                            
+                                var salary1 = document.getElementById('salary').value || 0;
+                                var salary2 = document.getElementById('salary1').value || 0;
+                                var salary3 = document.getElementById('salary2').value || 0;
+                                var salary4 = document.getElementById('salary3').value || 0;
+                            
+                                var result = parseInt(salary1) + parseInt(salary2) + parseInt(salary3) + parseInt(salary4);
+                            
+                                    document.getElementById('totalsalary').value = result;
+                            }
+                            
+                            
+                            </script>
+
+
+                    </div>
+
+
+                </form>
+           
+           
+
+
+            
+                <div class="watch">
+
+                    <h1>It's your right to know</h1>
+                <button class="watchhere">Watch here</button>
+                
+               </div>
+               
+                <div class="trailer">
+                    <video src="{% static 'video/ayuda.mp4' %}" controls="true"></video>
+                    <span class="close">&times;</span> <!--DITO NAGTART GUMANA SLIGHT-->
+                </div>
+   
+ 
+  
+       
+
+    </div>
+
+
+      <!--START FOOTER----------------------------------------------------->
+     
+    <!--START VIDEO------------------------------------------------------>
+    
+ 
+    <script>
+        const button = document.querySelector("button");
+        const close = document.querySelector(".close");
+        const trailer = document.querySelector(".trailer");
+        const video = document.querySelector("video");
+ 
+        button.addEventListener('click', ()=>{
+            trailer.style.visibility = "visible";
+            trailer.style.opacity = 1;
+ 
+        });
+ 
+          close.addEventListener('click', ()=>{
+            trailer.style.visibility = "hidden";
+            trailer.style.opacity = 0;
+ 
+            video.pause();
+            video.currentTime = 0;
+        });
+    </script>
+    <!--END VIDEO--------------------------------------------------->
+    
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'navigation.html' %}
+
+{% load static %}
+{% block content %}
+
+    <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+    
+<!-- END -->
+
+     <br>
+      <div class="inquiriespage">
+
+           <div class="introductioninquiries">
+                           <br>
+
+                        <h1>Your Voice matters</h1>
+                        <p style="text-align: center;">If you have any suggestions, questions, and comment. Please leave it here.</p>
+                        <br>
+
+            <form class="inquireandcomment" method="POST" action="Inquire" >
+                {% csrf_token %}
+            
+                <label for="nameinquires">Name</label><br>
+                        <input style="border-radius: 20px;border: 2px solid black; height: 25px; text-align: center;"type="text" id="nameinquiries" name="nameinquiries" placeholder="Name"><br>
+                
+                <label for="contactinquiries" class="contact">Contact</label><br>
+                        <input style="border-radius: 20px;border: 2px solid black;height: 25px; text-align: center;"type="text" id="contactinquiries" name="contactinquiries" placeholder="CONTACT NUMBER"><br>
+                        
+                <label for="message" class="message">Type of message</label><br>
+                        
+                        <select name="typemessage" id="typemessage">
+                        <option value="suggestion">Suggestion</option>
+                        <option value="question">Question</option>
+                        <option value="comment">Comment</option>
+                     
+                        </select>
+                        
+                        <h3>Compose your message here</h3>
+                        <textarea style="border: 2px solid black;"type="text" name="message" id="message"  cols="40" rows="13" ></textarea><br>
+
+                        <p>Please rate your experience! 1 being the lowest and 5 being the excellent</p>
+                        <select name="rate" id="rate">
+                            <option value="Poor">Poor</option>
+                            <option value="Weak">Weak</option>
+                            <option value="Good">Good</option>
+                            <option value="Very Good">Very Good</option>
+                            <option value="Excellent">Excellent</option>
+                            </select>
+                            <input type="submit" class="inquiriesbtn" value="submit">
+                     
+
+
+            </forms>
+
+   
+         </div>
+
+         <table class="inquiretable">
+             
+            <tr>
+                <th>Name</th>
+                <th>Type of message</th>
+                <th>Message</th>
+                <th>Rate</th>
+            </tr>
+
+
+            <tr>
+                
+            {% for comments in inq %}
+              <td> {{ forloop.counter }}: {{ comments.iname }}</td>
+              <td> {{ comments.typemessage }}</td>
+              <td> {{ comments.comments }} </td>
+              <td> {{ comments.rate }}</td>
+           
+              
+            </tr>
+            {% endfor %}
+
+
+    </table>
+                   
+     </div>
+
+
+    {% endblock %}

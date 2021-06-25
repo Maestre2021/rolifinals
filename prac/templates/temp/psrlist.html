@@ -1,0 +1,371 @@
+{% load static %}
+<html>
+<head>
+<title>Pandemic Subsidy Registration</title>
+
+<style>
+body {
+  background-color: #d9d9d9;
+/*  background-image: <img src="{% static 'image/roli/filipino.jpg'%}" alt="roli">*/
+}
+.backgroundtitle{
+	background-color: #3a3a3a;
+	border-radius: 20px;
+}
+.psrtable
+
+/*table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}*/
+
+td, th {
+  border: 3px solid black;
+  text-align: left;
+ /* padding: 8px;*/
+}
+
+
+.secondform
+{
+	background: gray;
+	width: 450px;
+	height: 420px;
+	padding: 0 50px 50px 0;
+	text-align: center;
+	margin-left: 30px;
+	border-radius: 30px;
+
+}
+
+.thirdform
+{
+	background: gray;
+	width: 450px;
+	height: 420px;
+	padding: 0 50px 50px 0;
+	text-align: center;
+	margin-left: 550px;
+	border-radius: 30px;
+	margin-top: -470px;
+
+}
+
+
+</style>
+
+<!-- script>
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").clone().appendTo("body");
+  });
+});
+
+
+</script>
+ -->
+
+</head>
+
+<body>
+
+<div class="backgroundtitle">
+
+
+	<h1 style="color:white; font-family:verdana; font: arial bold; font-size: 40px; text-align:center;">Pandemic Subsidy form for Mabuhay City Residence</h1> </div>
+
+<div class="displayname">
+	<form method="POST" action='/prac/{{pn.id}}/addItem'>
+
+
+	<h1 style="color: #392613; font: arial bold; font-size: 35px; text-align: center">Applicant Information</h1>
+		
+								<p style="font-size: 35px;"> Hello, {{ pname.fname.upper }} </p>
+								<p style="color: #392613">Please fill in the necessary information</p>
+								<p style="color: #392613"><b><i>NOTE: Please wait for the official list on our Facebook Page, thank you!<i><b></p>
+
+									{% csrf_token %}
+					
+	</form>
+
+
+<div class="secondform">
+	<form  method="POST" action='/prac/{{my.id}}/addItem'> 
+		<!--BAGO TO TRY TRY LANG FOR NEW TABLE-->
+		<br>
+		<label style="color:#392613; font-family:verdana; font-size: 35px;" for="name">Income Information</label>
+		<p style="font-size: 11px; color: black; text-align: center;">If a family member has no job, please simply put "none" in occupation section and number '0' in salary, Thank you.</p> 
+
+		<label style="color:#392613; font-family:verdana; font-size: 15px;" for="member">Family Member #1</label><br>
+			<input style="border-radius: 0 0.5em;"type="text" 
+			   id="member1" 
+			   name="member1"
+			   placeholder="Full Name" ><br>
+			<input style="border-radius: 0 0.5em;"type="text" 
+			   id="occupation1" 
+			   name="occupation1" 
+			   placeholder="Occupation"><br>
+			<input style="border-radius: 0 0.5em;"type="number" 
+			   id="salary1" 
+			   name="salary1" 
+			   placeholder="Salary per month"><br>
+
+
+
+		<label style="color:#392613; font-family:verdana; font-size: 15px;" for="member">Family Member #2</label><br>
+			<input style="border-radius: 0 0.5em;"type="text" 
+			   id="member2" 
+			   name="member2"
+			   placeholder="Full Name" ><br>
+			<input style="border-radius: 0 0.5em;"type="text" 
+			   id="occupation2" 
+			   name="occupation2" 
+			   placeholder="Occupation"><br>
+			<input style="border-radius: 0 0.5em;"type="number" 
+			   id="salary2" 
+			   name="salary2" 
+			   placeholder="Salary per month"><br>
+
+
+		<label style="color:#392613; font-family:verdana; font-size: 15px;" for="member">Family Member #3</label><br>
+			<input style="border-radius: 0 0.5em;"type="text" 
+			   id="member3" 
+			   name="member3"
+			   placeholder="Full Name" ><br>
+			<input style="border-radius: 0 0.5em;"type="text" 
+			   id="occupation3" 
+			   name="occupation3" 
+			   placeholder="Occupation"><br>
+			<input style="border-radius: 0 0.5em;"type="number" 
+			   id="salary3" 
+			   name="salary3" 
+			   placeholder="Salary per month"><br>
+	   <!--oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />--><br>
+
+		<label style="color:#392613; font-family:verdana; font-size: 15px;" for="member">Estimated Household Monthly Salary</label><br>
+			<input style="border-radius: 0 0.5em;"type="number" 
+			   id="salary" 
+			   name="salary"/>
+
+
+
+<br>
+<br>
+
+
+</form>
+
+</div>
+
+<div class="thirdform">
+<form method='POST' action=>
+
+		<br>
+		<label style="color:#392613; font-family:verdana; font-size: 35px;" for="name">Subsidy Information</label><br><br>
+		<label style="color:#392613; font-family:verdana; font-size: 15px;" for="member">Number of Members of the Family</label>
+		<input style="border-radius: 0 0.5em;"type="number" 
+			   id="family_member" 
+			   name="family_member" >
+
+	   <!--oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />--><br>
+
+		<label style="color:#392613; font-family:verdana; font-size: 15px;" for="member">Total cash to receive:</label><br>
+		<input style="border-radius: 0 0.5em;"type="number" 
+			   id="subsidy" 
+			   name="subsidy"/>
+
+
+
+<input type="submit" 
+	   id="confirmbtn" 
+	   name="confirmbtn" 
+	   style="color:white; background-color: lightblue" 
+	   value="Submit"/>
+	
+{% csrf_token %}
+</form>
+</div>
+
+						<table id="fam_salary">
+							<tr>
+								<th style="color:white">Applicant's Income information</th> 
+								<th style="color:white">Status : Pending</th></tr>
+							<tr>
+								<th style="color:white">Occupation</th>
+								<th style="color:white">Income</th>
+							</tr>
+
+								{% for item in pn.item_set.all %}
+							<tr>
+								<td>{{ item.text }} </td>
+								<td>{{ item.address }} </td> 
+							</tr>
+
+							{% endfor %}
+						</table>
+
+
+					<table id="subsidy_total">
+							<tr>
+								<th style="color:white">Family information</th> 
+								<th style="color:white">Status : Pending</th></tr>
+							<tr>
+								<th style="color:white">Family Member</th>
+								<th style="color:white">Occupation</th>
+								<th style="color:white">Salary per Month</th>
+							</tr>
+
+								{% for item in pn.item_set.all %}
+							<tr>
+								<td>{{ item.text }} </td>
+								<td>{{ item.address }} </td> 
+								<td>{{ item.address }} </td> 
+							</tr>
+							<tr>
+								<td>{{ item.text }} </td>
+								<td>{{ item.address }} </td> 
+								<td>{{ item.address }} </td> 
+							</tr>
+							<tr>
+								<td>{{ item.text }} </td>
+								<td>{{ item.address }} </td> 
+								<td>{{ item.address }} </td> 
+							</tr>
+
+							{% endfor %}
+						</table>
+						{% csrf_token %}
+
+
+
+
+</body>
+
+
+</html>
+
+
+
+
+
+
+	<!-- {{ pname.faddress.upper }}  
+								{{ pname.gender.upper }}
+ -->
+<!-- 
+						<table class="psrtable">
+							<tr>
+								<th style="color:white">Applicant</th> 
+								<th style="color:white">Status : Pending</th></tr>
+							<tr>
+								<th style="color:white">NAME</th>
+								<th style="color:white">ADDRESS</th>
+							</tr>
+
+								{% for item in pn.item_set.all %}
+							<tr>
+ -->
+								<!-- {{ forloop.counter }}: {{ pname.fname.upper }}
+								{{ pname.faddress.upper }}  
+								{{ pname.gender.upper }} -->
+								<!-- <td>{{ forloop.counter }}: {{ pname.fname.upper }} </td>
+								<td>{{ pname.faddress.upper }} </td> 
+								<td>{{ pname.gender.upper }} </td> 
+ -						</tr>
+<!-- 
+							{% endfor %} 
+
+									{% csrf_token %}
+						</table>-->
+
+
+
+
+
+
+
+<!-- <table id="psrtable">
+	<tr>
+		<th>NAME</th>
+		<th>ADDRESS</th>
+	</tr>
+
+		{% for item in pn.item_set.all %}
+	<tr>
+		<td>{{ forloop.counter }}: {{ item.text }} </td>
+		<td>{{ forloop.counter }}: {{ address.text }} </td> 
+	</tr>
+	{% endfor %}
+</table> --><!-- 
+
+
+<label style="color:white; font-family:verdana; font-size: 15px;" for="name">Family and Income Information</label><br>
+<label style="color:white; font-family:verdana; font-size: 15px;" for="member">How many family members do you have?</label>
+<input style="border-radius: 0 0.5em;"type="number" 
+	   id="member" 
+	   name="member" 
+	   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" /><br>
+<label style="color:white; font-family:verdana; font-size: 15px;" for="member">Estimated Household Monthly Salary</label>
+<input style="border-radius: 0 0.5em;"type="number" 
+	   id="member" 
+	   name="member"/><br>
+
+
+<p style="color:white;font-family: verdana">Please Upload an image of your official document (Valid ID, Certificate of indigency etc.)</p>
+
+<label for="psrfile">Select a file</label>
+<input type="file" id="psrfile" name="psrfile"><br>
+
+
+
+
+
+ -->
+
+
+
+
+
+
+
+<!-- 
+<label style="color: #392613; font-family:verdana; font-size: 20px;" for="name"><b>Name of Applicant:<b></label><br>
+<input style="border-radius: 0 0.5em;" type="text" id="surname" name="surname" placeholder="Surname"/>
+
+<br>
+<br>
+
+<label style="color: #392613; font-family:verdana; font-size: 20px;" for="age"><b>Age:<b></label>
+<input style="border-radius: 0 0.5em;"type="number" 
+	   id="age" 
+	   name="age" 
+	   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+<label style="color: #392613; font-family:verdana; font-size: 20px;" for="age"><b>Sex:<b></label>
+<input style="border-radius: 0 0.5em;"type="radio" 
+	   id="msex" 
+	   name="sex" 
+	   value="Male"/>
+<label style="color: #392613; font-family:verdana; font-size: 20px;" for="sexm"><b>Male<b></label>
+<input style="border-radius: 0 0.5em;"type="radio" 
+	   id="fsex" 
+	   name="sex" 
+	   value="Female"/>
+<label style="color: #392613; font-family:verdana; font-size: 20px;" for="sexf"><b>Female<b></label>
+
+<br>
+<br>
+<label style="color: #392613; font-family:verdana; font-size: 20px;"for="address"><b>Permanent Address<b></label><br>
+
+<textarea style="border-radius: 0 0.5em;"id="address" 
+		  name="address" 
+		  rows="2" 
+		  cols="100">
+</textarea>
+
+<br>
+<br> -->
+

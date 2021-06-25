@@ -1,0 +1,98 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPS</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'additionalassistancecss.css' %}">
+        <link rel="icon" href="{% static 'images/minilogo.png' %}" type="images/minilogo.png">
+        <script src="https://kit.fontawesome.com/c5e4be97dd.js" crossorigin="anonymous"></script>
+        <style>
+
+            .page2{
+               background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("{% static 'images/people.jpg' %}");
+            }
+        </style>
+    </head>
+    <body>
+    <!--Start ANNOUNCEMENT and NAVIGATION BAR--------------------------->
+
+<!-- END -->
+
+     
+                 <div class="page2">
+                     
+
+                 <a class="applicant3" href="{% url 'Applicant' %}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                   Applicant Information
+                </a>
+                <a class="subsidy3" href="{% url 'Subsidy' %}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Subsidy
+                </a>
+                <a class="status2" href="{% url 'Status' %}">
+                    <span></span> 
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Status
+                </a>
+                <a class="assistanceglow" href="{% url 'Assistance' %}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Additional Assistance
+                </a>
+              
+                <a class="logout" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Logout
+                </a>
+              
+
+
+                       <div class="introduction">
+                           <div class="assist">
+                       <h1 style="text-align: center;">Additional Assistance</h1>
+                       <h2 style="text-align: center;">Additional Assistance is an extended help for people in need.</h2><br>
+                                <div class="add">
+                                    <h4>Hello, {{ pname.firstname.upper }} </h4>
+                                        <label for="assistancee"style="text-align: center;">Address:</label>
+                                        <input style="text-align: center;" type="text" id="add" placeholder="Address"><br>
+
+                                        <label style="text-align: center;" for="assistancee1">CONTACT:</label>
+                                        <input style="text-align: center;" type="text" id="contact" placeholder="Contact"><br>
+                                        
+                                        <label style="text-align: center;"for="assistancee2">AMOUT:</label>
+                                        <input style="text-align: center;" type="number" id="contact" placeholder="AMOUNT"><br>
+                                        <input style="text-align: center;" type="submit" id="assisbtn" value="Request">
+
+                                </div>
+
+                                </div>
+
+                        
+                       </div>
+                   
+                 </div>
+
+                 
+
+
+
+{% endblock %}
